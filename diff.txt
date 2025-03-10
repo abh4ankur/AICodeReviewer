@@ -1,0 +1,22 @@
+diff --git a/file.c b/file.c
+index e1dc81d161..6519ea400b 100644
+--- a/file.c
++++ b/file.c
+@@ -9216,6 +9216,8 @@ int functionName
+ 	   decU16( &param->totPrbUsageUl, mBuf);	
+       }
+ 	decU16( &param->sfn, mBuf);
++	decU16( &param->totPrbAvailableDl, mBuf);
++	decU16( &param->totPrbAvailableUl, mBuf);
+ 	SKIP_UNREAD_IE_DATA(mBuf,ie_len,len_pos,ie_diff);
+ 
+ 	return(ROK);
+@@ -9507,6 +9509,8 @@ int functionName
+ 	   encU16( param->totPrbUsageUl, mBuf);
+       }
+ 	encU16( param->sfn, mBuf);
++	encU16( param->totPrbAvailableDl, mBuf);
++	encU16( param->totPrbAvailableUl, mBuf);
+ 	
+ 
+ 	return 1;
