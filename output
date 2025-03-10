@@ -1,0 +1,43 @@
+**Code Review Report**
+
+| File | Line | Issue | Criticality |
+| --- | --- | --- | --- |
+| cu_du_encdec.c | 9216 | Uninitialized variables `totPrbAvailableDl` and `totPrbAvailableUl` are used without initialization. | High |  
+| cu_du_encdec.c | 9507 | Uninitialized variables `totPrbAvailableDl` and `totPrbAvailableUl` are used without initialization. | High |  
+| wr_smm_dyncfg.c | 7253 | Uninitialized variable `isDssFeatureEnabled` is used without initialization. | High |
+| wr_smm_enb_utils.c | 7390 | Uninitialized variable `isDssFeatureEnabled` is used without initialization. | High |
+| rm_application.cpp | 832 | Uninitialized variables `servTotPrbAvailableDl`, `servTotPrbAvailableUl`, `nbrTotPrbAvailableDl`, and `nbrTotPrbAvailableUl` are used without initialization. | High |
+| rm_cellmanager.cpp | 139 | Uninitialized variables `totPrbAvailableDl` and `totPrbAvailableUl` are initialized to 1, but their values are not validated. | Medium |
+| rm_cellmanager.cpp | 224 | Uninitialized variables `totPrbAvailableDl` and `totPrbAvailableUl` are initialized to 1, but their values are not validated. | Medium |
+| rm_cellmanager.cpp | 386 | Uninitialized variable `isDssFeatureEnabled` is used without initialization. | High |
+| rm_cellmanager.cpp | 2689 | Uninitialized variable `isDssFeatureEnabled` is used without initialization. | High |
+| rm_cellmanager.cpp | 2868 | Uninitialized variables `servPrbThreshDL` and `servPrbThreshUL` are used without initialization. | High |  
+| rm_cellmanager.h | 350 | Uninitialized variables `totPrbAvailableDl` and `totPrbAvailableUl` are declared, but their values are not validated. | Medium |
+| rm_ex_ms.c | 144 | Uninitialized variable `g_thisThrdInstId` is used without initialization. | High |
+| rm_ex_ms.c | 317 | Uninitialized variable `g_thisThrdInstId` is used without initialization. | High |
+| vz_cu.c | 7562 | Uninitialized variables `totPrbAvailableDl` and `totPrbAvailableUl` are used without initialization. | High |
+| vz_du.c | 1045 | Uninitialized variables `totPrbAvailableDl` and `totPrbAvailableUl` are used without initialization. | High |
+
+**Summary**
+
+The code has several issues related to uninitialized variables, which can lead to undefined behavior and crashes. The criticality of these issues ranges from Medium to High, depending on the context in which they are used.
+
+**Recommendations**
+
+1. Initialize all variables before using them.
+2. Validate the values of variables before using them.
+3. Use meaningful variable names to avoid confusion.
+4. Consider using a static analysis tool to detect uninitialized variables and other issues.
+
+**Code Efficiency**
+
+The code can be improved by reducing the number of function calls and using more efficient data structures. For example, instead of using `cmMemcpy` and `cmMemset`, consider using `std::memcpy` and `std::memset` if available.
+
+**Readability**
+
+The code can be improved by following consistent naming conventions and using meaningful variable names. For example, instead of using `totPrbAvailableDl` and `totPrbAvailableUl`, consider using `total_available_dl_prbs` and `total_available_ul_prbs`.
+
+**Adherence to Go and C/C++ best practices**
+
+The code does not follow the best practices for Go and C/C++ programming. For example, the code uses `cmMemcpy` and `cmMemset` instead of `std::memcpy` and `std::memset`. The code also uses `U32` and `U16` instead of `uint32_t` and `uint16_t`.
+PS C:\Users\abansal\OneDrive - Mavenir Systems, Inc\Desktop\Python_Code\AICodeReviewer\app> 
